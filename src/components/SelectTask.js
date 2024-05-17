@@ -1,7 +1,14 @@
-function SelectTask(){
+function SelectTask(props){
+    let {handleSelected} = props
+
+    function handleChange(flag){
+        handleSelected(flag)
+    }
     return (
         <div>
-            未完成 <input type="radio" name="option" /> 已完成 <input type="radio" name="option" />
+            <input type="radio" name="option" onChange={()=>handleChange(-1)}/>全部 
+            <input type="radio" name="option" onChange={()=>handleChange(0)}/>未完成  
+            <input type="radio" name="option" onChange={()=>handleChange(1)}/>已完成 
         </div>
     )
 }
